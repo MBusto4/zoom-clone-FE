@@ -1,12 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Navigation from './Navigation';
+import 'react-native-gesture-handler';
+// import { Provider } from "react-redux";
+// import { BrowserRouter } from "react-router-dom";
+// import store from "./store";
+// import Routes from "./routes";
+import { UsersProvider } from './usersContext'
+import { SocketProvider } from './socketContext'
+import { MainProvider } from './mainContext'
+
+
+
+
+
+
+
+
+import Home from './screens/Home';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // <Provider store={store}>
+    <MainProvider>
+      <UsersProvider>
+        <SocketProvider>
+          <Navigation />
+        </SocketProvider>
+      </UsersProvider>
+    </MainProvider>
   );
 }
 
